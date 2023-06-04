@@ -1,0 +1,17 @@
+---
+import Logo from "./Logo.astro";
+import Themetoggle from "./Themetoggle.astro";
+var description = import.meta.env.DESCRIPTION;
+---
+
+<header>
+  <div class="fb items-center">
+    <Logo />
+    <Themetoggle />
+  </div>
+  <div class="fi mt-2">
+    <span class="gpt-title">Large Language Model</span>
+    <span class="gpt-subtitle">Exploitation</span>
+  </div>
+  <p mt-1 op-60>{description}</p>
+</header>

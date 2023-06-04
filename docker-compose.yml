@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  llm-ctf:
+    image: nhtlongcs/llm-ctf:latest
+    container_name: llm-ctf-Lucy-Jason
+    restart: always
+    ports:
+      - "3000:4000"
+    volumes:
+      - .env:/usr/src/.env
