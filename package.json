@@ -18,7 +18,6 @@
     "@astrojs/node": "^5.0.4",
     "@astrojs/solid-js": "^2.0.2",
     "@astrojs/vercel": "^3.1.3",
-    "@dqbd/tiktoken": "^1.0.3",
     "@unocss/reset": "^0.50.1",
     "astro": "^2.0.15",
     "eslint": "^8.36.0",
@@ -32,7 +31,6 @@
     "markdown-it-katex": "^2.0.3",
     "solid-js": "1.6.12",
     "solidjs-use": "^1.2.0",
-    "tiktoken-node": "^0.0.5",
     "undici": "^5.20.0"
   },
   "devDependencies": {

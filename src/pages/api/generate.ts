@@ -5,7 +5,7 @@ import { generatePayload, parseOpenAIStream } from '@/utils/openAI'
 import { verifySignature } from '@/utils/auth'
 import type { APIRoute } from 'astro'
 
-import { encoding_for_model } from "@dqbd/tiktoken";
+// import { encoding_for_model } from "@dqbd/tiktoken";
 
 
 const apiKeys = import.meta.env.OPENAI_API_KEYS || ''
@@ -71,30 +71,12 @@ export const post: APIRoute = async (context) => {
   //   return new Response(`${tokens}`);
   // }
   const getNumberOfTokens = (messages: any) => {
-    // let enc = tiktoken.encodingForModel("gpt-3.5-turbo-0301") // unstable pkg, changed to @dqbd/tiktoken
-    const enc = encoding_for_model("gpt-3.5-turbo-0301");
-
-    // write a function to calculate the number of tokens
-    // 1. every message follows <|start|>{role/name}\n{content}<|end|>\n
-    // 2. every reply is primed with <|start|>assistant<|message|>
-    // 3. if there's a name, the role is omitted
-    // 4. the number of tokens is the sum of the number of tokens of all messages and the number of tokens of the last message
-
-    const tokens_per_message = 4
-    const tokens_per_name = 1
-    let num_tokens = 0
-    for (let message of messages) {
-      num_tokens += tokens_per_message
-      for (let key in message) {
-        num_tokens += enc.encode(message[key]).length
-        if (key == "name") {
-          num_tokens += tokens_per_name
-        }
-      }
+    // return number of words split by space 
+    var words = 0
+    for (var i = 0; i < messages.length; i++) {
+      words += messages[i].content.split(' ').length
     }
-    num_tokens += 3
-    enc.free();
-    return num_tokens
+    return words
   }
   const num_tokens = getNumberOfTokens(messages)
   // console.log('num_tokens', num_tokens)
