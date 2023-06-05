@@ -1,4 +1,4 @@
-# LLM - Social Engineering CTF Challenge
+# LLM - Social Engineering CTF Challenge [easy version]
 
 This is a proof-of-concept application that utilizes the [OpenAI API](https://beta.openai.com/) to embed the secrets of a LLM's knowledge.
 
